@@ -1,0 +1,64 @@
+{
+  "entities": {
+    "Part": {
+      "title": "Car Part",
+      "description": "A car part available for purchase",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "name_ar": { "type": "string" },
+        "description": { "type": "string" },
+        "description_ar": { "type": "string" },
+        "price": { "type": "number" },
+        "category": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "stock": { "type": "number" },
+        "compatibility": { "type": "array", "items": { "type": "string" } },
+        "brand": { "type": "string" }
+      },
+      "required": ["name", "price", "category", "stock"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "A user's purchase order",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "items": { "type": "array" },
+        "total": { "type": "number" },
+        "status": { "type": "string", "enum": ["pending", "processing", "shipped", "delivered", "cancelled"] },
+        "trackingNumber": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "shippingAddress": { "type": "object" },
+        "paymentId": { "type": "string" }
+      },
+      "required": ["userId", "items", "total", "status", "createdAt"]
+    },
+    "User": {
+      "title": "User",
+      "description": "User profile information",
+      "type": "object",
+      "properties": {
+        "displayName": { "type": "string" },
+        "email": { "type": "string" },
+        "phoneNumber": { "type": "string" },
+        "addresses": { "type": "array" },
+        "preferredLanguage": { "type": "string", "enum": ["en", "ar"] }
+      }
+    }
+  },
+  "firestore": {
+    "parts": {
+      "schema": "Part",
+      "description": "Collection of all car parts"
+    },
+    "orders": {
+      "schema": "Order",
+      "description": "Collection of all customer orders"
+    },
+    "users": {
+      "schema": "User",
+      "description": "User profile documents"
+    }
+  }
+}

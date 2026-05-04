@@ -1,0 +1,14 @@
+{
+  "name": "CHE Car Parts",
+  "description": "Mobile-responsive e-commerce application for car parts with RTL/LTR support, order tracking, and payment integration.",
+  "requestFramePermissions": [
+    "camera",
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "Firebase Firestore",
+    "Firebase Authentication",
+    "RTL Support",
+    "Payment Integration"
+  ]
+}
